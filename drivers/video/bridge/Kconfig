@@ -33,3 +33,12 @@ config VIDEO_BRIDGE_ANALOGIX_ANX6345
 	help
 	 The Analogix ANX6345 is RGB-to-DP converter. It enables an eDP LCD
 	 panel to be connected to an parallel LCD interface.
+
+config VIDEO_PANEL_BOE_HB140WX1_501
+	bool "Support BOE HB140WX1-501 panel connected via Analogix ANX6345 RGB->DP bridge"
+	depends on VIDEO_BRIDGE_ANALOGIX_ANX6345
+	select DM_I2C
+	help
+	 The BOE HB140WX1-501 panel shipped with the early 14" pinebook models 
+	 do not include an EDID payload. Enable to provide a hard-coded EDID if
+	 panel/bridge does not provide EDID.
